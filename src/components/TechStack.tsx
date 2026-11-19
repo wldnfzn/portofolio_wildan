@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useAppContext } from "../context/AppContext";
 import { PORTFOLIO_DATA, TECH_BADGES } from "../data/portfolioData";
 
@@ -144,6 +145,7 @@ const TechStack = () => {
       renderer.setSize(w, h);
     };
     window.addEventListener("resize", onResize);
+    ScrollTrigger.refresh();
 
     const diff = new THREE.Vector3();
     let rafId = 0;
