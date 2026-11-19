@@ -1,0 +1,33 @@
+.cursor-main {
+  --size: 0px;
+  position: fixed;
+  top: calc(var(--size) / -2);
+  left: calc(var(--size) / -2);
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50px;
+  pointer-events: none;
+  z-index: 9998;
+  background-color: #e6c3ff;
+  box-shadow: 0px 0px 30px 0px rgb(175, 131, 255);
+  mix-blend-mode: difference;
+  transition: width 0.25s ease-out, height 0.25s ease-out;
+}
+
+.cursor-icons {
+  top: 6px;
+  left: 6px;
+  width: 38px;
+  height: 38px;
+  transition: all 0.4s ease-out;
+}
+
+.cursor-disable {
+  --size: 0px !important;
+}
+
+@media only screen and (min-width: 768px) {
+  .cursor-main {
+    --size: 46px;
+  }
+}

@@ -1,0 +1,91 @@
+.icons-section {
+  position: fixed;
+  max-width: var(--cMaxWidth);
+  width: var(--cWidth);
+  bottom: 0;
+  z-index: 99;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.social-icons,
+.resume-button {
+  pointer-events: auto;
+}
+
+.social-icons {
+  position: absolute;
+  left: -10px;
+  bottom: 24px;
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 999;
+  padding: 8px;
+}
+
+.social-icons span {
+  width: 44px;
+  height: 44px;
+  position: relative;
+  display: flex;
+}
+
+.social-icons a {
+  --siLeft: 50%;
+  --siTop: 50%;
+  position: absolute;
+  left: var(--siLeft, 50%);
+  top: var(--siTop, 50%);
+  transform: translate(-50%, -50%);
+  display: flex;
+  font-size: 22px;
+  transition: color 0.3s ease;
+}
+
+.resume-button {
+  position: absolute;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  bottom: 20px;
+  right: 0;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(11, 8, 12, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(194, 164, 255, 0.35);
+  letter-spacing: 2.5px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #e4e4e7;
+  cursor: pointer;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.resume-button:hover {
+  color: #fff;
+  border-color: var(--accentColor);
+}
+
+.resume-button span {
+  color: var(--accentColor);
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+@media only screen and (min-width: 900px) {
+  .social-icons {
+    display: flex;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .resume-button {
+    font-size: 14px;
+    bottom: 24px;
+  }
+}
