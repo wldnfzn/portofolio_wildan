@@ -53,7 +53,7 @@ const Contact = () => {
               LinkedIn <MdArrowOutward />
             </a>
             <a
-              href="https://www.instagram.com/musicsociety.utb/"
+              href="https://www.instagram.com/wildanfauzannnnn/"
               target="_blank"
               rel="noreferrer"
               data-cursor="disable"
