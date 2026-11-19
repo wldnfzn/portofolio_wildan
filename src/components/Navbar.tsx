@@ -116,6 +116,11 @@ const Navbar = () => {
               </a>
             </li>
             <li>
+              <a href="#events" onClick={(e) => handleNavClick(e, "#events")}>
+                <HoverLinks text={copy.events} />
+              </a>
+            </li>
+            <li>
               <a href="#contact" onClick={(e) => handleNavClick(e, "#contact")}>
                 <HoverLinks text={copy.contact} />
               </a>

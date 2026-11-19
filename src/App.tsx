@@ -9,6 +9,7 @@ import About from "./components/About";
 import WhatIDo from "./components/WhatIDo";
 import Career from "./components/Career";
 import Work from "./components/Work";
+import EventGallery from "./components/EventGallery";
 import Contact from "./components/Contact";
 import "./App.css";
 
@@ -42,6 +43,7 @@ const AppContent = () => {
             <WhatIDo />
             <Career />
             <Work />
+            <EventGallery />
             <Suspense fallback={<div className="techstack-loading">Loading 3D Stack...</div>}>
               <TechStack />
             </Suspense>

@@ -20,6 +20,19 @@ export interface ProjectEntry {
   visualType: "sword" | "map" | "salestrack" | "ump-profile";
 }
 
+export type EventCategory = "all" | "ketuaumum" | "stallsick" | "mfl" | "mov";
+
+export interface EventPhotoEntry {
+  id: string;
+  category: Exclude<EventCategory, "all">;
+  categoryLabel: string;
+  title: string;
+  role: string;
+  year: string;
+  image: string;
+  caption: string;
+}
+
 export interface ServiceCard {
   title: string;
   subtitle: string;
@@ -33,6 +46,7 @@ export interface PortfolioCopy {
     whatIDo: string;
     career: string;
     work: string;
+    events: string;
     contact: string;
     resumeLabel: string;
     resumeFile: string;
@@ -82,6 +96,13 @@ export interface PortfolioCopy {
     toolsLabel: string;
     projects: ProjectEntry[];
   };
+  events: {
+    headingLead: string;
+    headingAccent: string;
+    subtitle: string;
+    categories: Array<{ key: EventCategory; label: string }>;
+    items: EventPhotoEntry[];
+  };
   techstack: {
     heading: string;
     hint: string;
@@ -127,6 +148,7 @@ export const PORTFOLIO_DATA: Record<Lang, PortfolioCopy> = {
       whatIDo: "WHAT I DO",
       career: "CAREER",
       work: "WORK",
+      events: "EVENTS",
       contact: "CONTACT",
       resumeLabel: "RESUME (EN)",
       resumeFile: "/CV_Wildan_Fauzan_EN.pdf",
@@ -323,6 +345,161 @@ export const PORTFOLIO_DATA: Record<Lang, PortfolioCopy> = {
         },
       ],
     },
+    events: {
+      headingLead: "Event & ",
+      headingAccent: "Leadership",
+      subtitle:
+        "Visual highlights from campus music festivals and student organization leadership at UKM Music Society UTB — demonstrating cross-team coordination, event execution, and stakeholder management.",
+      categories: [
+        { key: "all", label: "All Highlights" },
+        { key: "ketuaumum", label: "General Chairperson" },
+        { key: "stallsick", label: "Stallsick Fest" },
+        { key: "mfl", label: "Music For Life" },
+        { key: "mov", label: "Music On Vacation" },
+      ],
+      items: [
+        {
+          id: "ev-01",
+          category: "ketuaumum",
+          categoryLabel: "Leadership",
+          title: "UKM Music Society UTB — General Chairperson",
+          role: "Ketua Umum / Overall Supervisor",
+          year: "2025",
+          image: "/events/ketua-umum-wildan.jpg",
+          caption: "Led organizational strategy, cross-division coordination, and all 2025 event programs.",
+        },
+        {
+          id: "ev-02",
+          category: "stallsick",
+          categoryLabel: "Stallsick Fest",
+          title: "Stallsick Fest x Dies Natalis UTB — Committee",
+          role: "Event Division / Overall Supervisor",
+          year: "2024 – 2025",
+          image: "/events/stallsick-stage-team.jpg",
+          caption: "Full organizing crew on the main auditorium stage after executing Stallsick Fest x Dies Natalis.",
+        },
+        {
+          id: "ev-03",
+          category: "stallsick",
+          categoryLabel: "Stallsick Fest",
+          title: "Stallsick Fest x Dies Natalis — Live Stage",
+          role: "Event Division & Crew Coordination",
+          year: "2024 – 2025",
+          image: "/events/stallsick-live-band.jpg",
+          caption: "Live band showcase and stage coordination with Music Society UTB crew.",
+        },
+        {
+          id: "ev-04",
+          category: "stallsick",
+          categoryLabel: "Stallsick Fest",
+          title: "Funky Sick — Stallsick Fest 2025",
+          role: "Project Supervisor (Ketua Umum)",
+          year: "Dec 2025",
+          image: "/events/stallsick-poster-2025.jpg",
+          caption: "Official poster for Stallsick Fest 2025 at Universitas Teknologi Bandung.",
+        },
+        {
+          id: "ev-05",
+          category: "stallsick",
+          categoryLabel: "Stallsick Fest",
+          title: "Stallsick Fest — Audience Engagement",
+          role: "Event Division",
+          year: "2024 – 2025",
+          image: "/events/stallsick-crowd.jpg",
+          caption: "Main stage crowd interaction and live music atmosphere during the festival.",
+        },
+        {
+          id: "ev-06",
+          category: "mfl",
+          categoryLabel: "Music For Life",
+          title: "Music For Life — Stage Production Crew",
+          role: "MC & Event Division / Supervisor",
+          year: "2024 – 2025",
+          image: "/events/mfl-crew-stage.jpg",
+          caption: "Behind-the-scenes production coordination with Music Society UTB members.",
+        },
+        {
+          id: "ev-07",
+          category: "mfl",
+          categoryLabel: "Music For Life",
+          title: "MFL Mini Concert: The Beginning",
+          role: "Project Supervisor (Ketua Umum)",
+          year: "Aug 2025",
+          image: "/events/mfl-poster-2025.jpg",
+          caption: "Mini Concert event poster organized under Music Society UTB 2025 leadership.",
+        },
+        {
+          id: "ev-08",
+          category: "mfl",
+          categoryLabel: "Music For Life",
+          title: "Music For Life Vol. II (MFL Vol. II)",
+          role: "Master of Ceremony (MC)",
+          year: "Aug 2024",
+          image: "/events/mfl-vol2-poster-2024.jpg",
+          caption: "Served as MC hosting stage sessions and performer transitions at MFL Vol. II.",
+        },
+        {
+          id: "ev-09",
+          category: "mfl",
+          categoryLabel: "Music For Life",
+          title: "Music For Life — Crowd Atmosphere",
+          role: "MC & Event Operations",
+          year: "2024",
+          image: "/events/mfl-live-crowd.jpg",
+          caption: "Energetic live audience engagement during the campus music showcase.",
+        },
+        {
+          id: "ev-10",
+          category: "mov",
+          categoryLabel: "Music On Vacation",
+          title: "Music On Vacation (MOV) — Project Officer",
+          role: "Ketua Pelaksana (Project Manager)",
+          year: "Jun 2024",
+          image: "/events/mov-project-manager.jpg",
+          caption: "Led concept formulation, cross-division execution, and on-site logistics as Project Officer.",
+        },
+        {
+          id: "ev-11",
+          category: "mov",
+          categoryLabel: "Music On Vacation",
+          title: "Music On Vacation — Event Poster",
+          role: "Ketua Pelaksana (Project Officer)",
+          year: "Jun 2024",
+          image: "/events/mov-poster-2024.jpg",
+          caption: "Promotional visual for Music On Vacation held at Coffeehey Area.",
+        },
+        {
+          id: "ev-12",
+          category: "mov",
+          categoryLabel: "Music On Vacation",
+          title: "MOV Organizing Team",
+          role: "Ketua Pelaksana (Project Officer)",
+          year: "Jun 2024",
+          image: "/events/mov-committee-team.jpg",
+          caption: "Cross-division committee team photo after wrapping up Music On Vacation.",
+        },
+        {
+          id: "ev-13",
+          category: "mov",
+          categoryLabel: "Music On Vacation",
+          title: "MOV On-Site Registration Desk",
+          role: "Ketua Pelaksana (Project Officer)",
+          year: "Jun 2024",
+          image: "/events/mov-registration.jpg",
+          caption: "Coordinating attendee check-in and ticketing flow at the event entrance.",
+        },
+        {
+          id: "ev-14",
+          category: "mov",
+          categoryLabel: "Music On Vacation",
+          title: "MOV Live Community Session",
+          role: "Ketua Pelaksana (Project Officer)",
+          year: "Jun 2024",
+          image: "/events/mov-jump-together.jpg",
+          caption: "Community & band collaboration moment during the Music On Vacation showcase.",
+        },
+      ],
+    },
     techstack: {
       heading: "My Techstack",
       hint: "Move cursor to interact with 3D nodes",
@@ -349,6 +526,7 @@ export const PORTFOLIO_DATA: Record<Lang, PortfolioCopy> = {
       whatIDo: "KEAHLIAN",
       career: "KARIR",
       work: "PROYEK",
+      events: "EVENT",
       contact: "KONTAK",
       resumeLabel: "UNDUH CV (ID)",
       resumeFile: "/CV_Wildan_Fauzan_ID.pdf",
@@ -542,6 +720,161 @@ export const PORTFOLIO_DATA: Record<Lang, PortfolioCopy> = {
           linkLabel: "Profil GitHub",
           accent: "#f472b6",
           visualType: "ump-profile",
+        },
+      ],
+    },
+    events: {
+      headingLead: "Dokumentasi ",
+      headingAccent: "Event & Kepemimpinan",
+      subtitle:
+        "Dokumentasi penyelenggaraan festival musik kampus dan kepemimpinan organisasi di UKM Music Society UTB sebagai bukti koordinasi lintas tim, manajemen acara, dan komunikasi mitra.",
+      categories: [
+        { key: "all", label: "Semua Dokumentasi" },
+        { key: "ketuaumum", label: "Ketua Umum" },
+        { key: "stallsick", label: "Stallsick Fest" },
+        { key: "mfl", label: "Music For Life" },
+        { key: "mov", label: "Music On Vacation" },
+      ],
+      items: [
+        {
+          id: "ev-01",
+          category: "ketuaumum",
+          categoryLabel: "Kepemimpinan",
+          title: "UKM Music Society UTB — Ketua Umum",
+          role: "Ketua Umum / Penanggung Jawab Program",
+          year: "2025",
+          image: "/events/ketua-umum-wildan.jpg",
+          caption: "Memimpin tata kelola organisasi, koordinasi seluruh divisi, dan seluruh agenda event tahun 2025.",
+        },
+        {
+          id: "ev-02",
+          category: "stallsick",
+          categoryLabel: "Stallsick Fest",
+          title: "Stallsick Fest x Dies Natalis UTB — Panitia",
+          role: "Divisi Acara / Penanggung Jawab",
+          year: "2024 – 2025",
+          image: "/events/stallsick-stage-team.jpg",
+          caption: "Foto bersama seluruh kepanitiaan di panggung utama usai pelaksanaan Stallsick Fest x Dies Natalis.",
+        },
+        {
+          id: "ev-03",
+          category: "stallsick",
+          categoryLabel: "Stallsick Fest",
+          title: "Stallsick Fest x Dies Natalis — Panggung Live",
+          role: "Divisi Acara & Koordinasi Teknis",
+          year: "2024 – 2025",
+          image: "/events/stallsick-live-band.jpg",
+          caption: "Penampilan band dan koordinasi panggung oleh kru UKM Music Society UTB.",
+        },
+        {
+          id: "ev-04",
+          category: "stallsick",
+          categoryLabel: "Stallsick Fest",
+          title: "Funky Sick — Stallsick Fest 2025",
+          role: "Penanggung Jawab (Ketua Umum)",
+          year: "Des 2025",
+          image: "/events/stallsick-poster-2025.jpg",
+          caption: "Poster resmi acara Stallsick Fest 2025 di Universitas Teknologi Bandung.",
+        },
+        {
+          id: "ev-05",
+          category: "stallsick",
+          categoryLabel: "Stallsick Fest",
+          title: "Stallsick Fest — Antusiasme Penonton",
+          role: "Divisi Acara",
+          year: "2024 – 2025",
+          image: "/events/stallsick-crowd.jpg",
+          caption: "Suasana interaksi penonton dan pengisi acara selama festival berlangsung.",
+        },
+        {
+          id: "ev-06",
+          category: "mfl",
+          categoryLabel: "Music For Life",
+          title: "Music For Life — Tim Produksi Panggung",
+          role: "MC & Divisi Acara / Penanggung Jawab",
+          year: "2024 – 2025",
+          image: "/events/mfl-crew-stage.jpg",
+          caption: "Koordinasi produksi di balik panggung bersama anggota Music Society UTB.",
+        },
+        {
+          id: "ev-07",
+          category: "mfl",
+          categoryLabel: "Music For Life",
+          title: "MFL Mini Concert: The Beginning",
+          role: "Penanggung Jawab (Ketua Umum)",
+          year: "Agu 2025",
+          image: "/events/mfl-poster-2025.jpg",
+          caption: "Poster acara Mini Concert yang diselenggarakan pada masa kepengurusan 2025.",
+        },
+        {
+          id: "ev-08",
+          category: "mfl",
+          categoryLabel: "Music For Life",
+          title: "Music For Life Vol. II (MFL Vol. II)",
+          role: "Master of Ceremony (MC)",
+          year: "Agu 2024",
+          image: "/events/mfl-vol2-poster-2024.jpg",
+          caption: "Memandu rangkaian acara utama dan menjaga interaksi audiens pada MFL Vol. II.",
+        },
+        {
+          id: "ev-09",
+          category: "mfl",
+          categoryLabel: "Music For Life",
+          title: "Music For Life — Suasana Acara",
+          role: "MC & Operasional Acara",
+          year: "2024",
+          image: "/events/mfl-live-crowd.jpg",
+          caption: "Keseruan audiens selama penyelenggaraan pertunjukan musik kampus.",
+        },
+        {
+          id: "ev-10",
+          category: "mov",
+          categoryLabel: "Music On Vacation",
+          title: "Music On Vacation (MOV) — Ketua Pelaksana",
+          role: "Ketua Pelaksana (Project Officer)",
+          year: "Jun 2024",
+          image: "/events/mov-project-manager.jpg",
+          caption: "Memimpin perumusan konsep, koordinasi lintas divisi, hingga eksekusi lapangan acara MOV.",
+        },
+        {
+          id: "ev-11",
+          category: "mov",
+          categoryLabel: "Music On Vacation",
+          title: "Music On Vacation — Poster Acara",
+          role: "Ketua Pelaksana (Project Officer)",
+          year: "Jun 2024",
+          image: "/events/mov-poster-2024.jpg",
+          caption: "Materi publikasi resmi acara Music On Vacation di Coffeehey Area.",
+        },
+        {
+          id: "ev-12",
+          category: "mov",
+          categoryLabel: "Music On Vacation",
+          title: "Tim Kepanitiaan MOV",
+          role: "Ketua Pelaksana (Project Officer)",
+          year: "Jun 2024",
+          image: "/events/mov-committee-team.jpg",
+          caption: "Dokumentasi tim panitia lintas divisi setelah menyelesaikan rangkaian acara MOV.",
+        },
+        {
+          id: "ev-13",
+          category: "mov",
+          categoryLabel: "Music On Vacation",
+          title: "Koordinasi Meja Registrasi MOV",
+          role: "Ketua Pelaksana (Project Officer)",
+          year: "Jun 2024",
+          image: "/events/mov-registration.jpg",
+          caption: "Pengelolaan alur registrasi dan penerimaan pengunjung di lokasi acara.",
+        },
+        {
+          id: "ev-14",
+          category: "mov",
+          categoryLabel: "Music On Vacation",
+          title: "Sesi Komunitas Live MOV",
+          role: "Ketua Pelaksana (Project Officer)",
+          year: "Jun 2024",
+          image: "/events/mov-jump-together.jpg",
+          caption: "Kolaborasi komunitas musik dan penonton pada acara Music On Vacation.",
         },
       ],
     },
