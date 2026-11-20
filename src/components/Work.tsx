@@ -3,13 +3,22 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MdArrowOutward } from "./Icons";
 import { lenisInstance } from "./Navbar";
-import { useAppContext } from "../context/AppContext";
+import { Lang, useAppContext } from "../context/AppContext";
 import { PORTFOLIO_DATA, ProjectEntry } from "../data/portfolioData";
+import { ProjectModal } from "./ProjectModal";
 import "./styles/Work.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ProjectVisualCard = ({ project }: { project: ProjectEntry }) => {
+const ProjectVisualCard = ({
+  project,
+  lang,
+  onOpenModal,
+}: {
+  project: ProjectEntry;
+  lang: Lang;
+  onOpenModal: (projectId: string, tab: "case-study" | "sandbox") => void;
+}) => {
   return (
     <div
       className="work-visual-card"
@@ -29,18 +38,33 @@ const ProjectVisualCard = ({ project }: { project: ProjectEntry }) => {
           ))}
         </ul>
       </div>
-      {project.link && (
-        <a
-          className="work-link"
-          href={project.link}
-          target="_blank"
-          rel="noreferrer"
-          data-cursor="disable"
-          title={project.linkLabel || project.name}
+      <div className="work-card-actions" data-cursor="disable">
+        <button
+          type="button"
+          className="work-action-btn"
+          onClick={() => onOpenModal(project.id, "case-study")}
         >
-          <MdArrowOutward />
-        </a>
-      )}
+          {lang === "EN" ? "Case Study" : "Studi Kasus"}
+        </button>
+        <button
+          type="button"
+          className="work-action-btn work-action-primary"
+          onClick={() => onOpenModal(project.id, "sandbox")}
+        >
+          {lang === "EN" ? "Try Sandbox" : "Coba Sandbox"}
+        </button>
+        {project.link && (
+          <a
+            className="work-link"
+            href={project.link}
+            target="_blank"
+            rel="noreferrer"
+            title={project.linkLabel || project.name}
+          >
+            <MdArrowOutward />
+          </a>
+        )}
+      </div>
     </div>
   );
 };
@@ -53,6 +77,14 @@ const Work = () => {
   const viewportRef = useRef<HTMLDivElement>(null);
   const stRef = useRef<ScrollTrigger | null>(null);
   const [activeCard, setActiveCard] = useState(0);
+  const [modalState, setModalState] = useState<{
+    id: string;
+    tab: "case-study" | "sandbox";
+  } | null>(null);
+
+  const selectedProject = modalState
+    ? copy.projects.find((p) => p.id === modalState.id) || null
+    : null;
 
   useEffect(() => {
     if (isLoading) return;
@@ -244,7 +276,11 @@ const Work = () => {
                 </div>
                 <div className="work-image">
                   <div className="work-image-in">
-                    <ProjectVisualCard project={project} />
+                    <ProjectVisualCard
+                      project={project}
+                      lang={lang}
+                      onOpenModal={(id, tab) => setModalState({ id, tab })}
+                    />
                   </div>
                 </div>
               </article>
@@ -252,6 +288,11 @@ const Work = () => {
           </div>
         </div>
       </div>
+      <ProjectModal
+        project={selectedProject}
+        initialTab={modalState?.tab}
+        onClose={() => setModalState(null)}
+      />
     </section>
   );
 };
