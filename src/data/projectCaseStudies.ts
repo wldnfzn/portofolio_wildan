@@ -215,7 +215,9 @@ export const PROJECT_CASE_STUDIES: CaseStudiesByLang = {
         "Validated mobile responsiveness, visual consistency with SWORD UI tokens, and lead-form field rules.",
       ],
       metricsNote:
-        "Preview corporate capability switching and B2B service intake in the Sandbox tab.",
+        "Preview corporate capability switching and B2B service intake in the Sandbox tab, or open the interactive UI prototype on compro-ump.vercel.app.",
+      externalUrl: "https://compro-ump.vercel.app/",
+      externalLabel: "compro-ump.vercel.app",
     },
   },
   ID: {
@@ -402,7 +404,9 @@ export const PROJECT_CASE_STUDIES: CaseStudiesByLang = {
         "Memvalidasi tampilan responsif mobile/desktop, konsistensi visual dengan SWORD, dan aturan validasi form prospek.",
       ],
       metricsNote:
-        "Coba simulasi pengelompokan layanan dan alur intake kontrak B2B pada tab Sandbox Interaktif.",
+        "Coba simulasi pengelompokan layanan dan alur intake kontrak B2B pada tab Sandbox Interaktif, atau buka prototipe UI di compro-ump.vercel.app.",
+      externalUrl: "https://compro-ump.vercel.app/",
+      externalLabel: "compro-ump.vercel.app",
     },
   },
 };

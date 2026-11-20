@@ -178,6 +178,21 @@ export const UmpProfileSandbox = ({ lang }: { lang: Lang }) => {
                 : `Permintaan B2B dummy terkirim (${unitCount} unit · ${current.titleId}) -> Siap diproses di antrean CCL SWORD.`}
             </p>
           )}
+          <div className="sb-wa-bar">
+            <span>
+              {isEn
+                ? "Explore the full interactive corporate website prototype:"
+                : "Lihat prototipe lengkap website profil perusahaan:"}
+            </span>
+            <a
+              href="https://compro-ump.vercel.app/"
+              target="_blank"
+              rel="noreferrer"
+              className="sb-link-pill"
+            >
+              compro-ump.vercel.app ↗
+            </a>
+          </div>
         </div>
       </div>
     </div>
